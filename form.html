@@ -9,11 +9,26 @@
 
 <body>
     <h1>
-        <form action="http://localhost:3000/api/item/create" method="post">
-            <input type="text" name="title" id="">
-            <button type="submit">投稿</button>
-        </form>
+        データ入力窓口
     </h1>
+    <form action="http://localhost:3000/api/item/create" method="post">
+        <label for="title">タイトル</label>
+        <input type="text" name="title" id="title">
+        <br>
+        <label for="image">イメージ</label>
+        <input type="text" name="image" id="image">
+        <br>
+        <label for="price">価格</label>
+        <input type="text" name="price" id="price">
+        <br>
+        <label for="description">説明</label>
+        <textarea name="description" id="description"></textarea>
+        <br>
+        <label for="email">メールアドレス</label>
+        <input type="text" name="email" id="email">
+        <br>
+        <button type="submit">投稿</button>
+    </form>
 </body>
 
 </html>
