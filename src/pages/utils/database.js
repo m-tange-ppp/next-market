@@ -6,6 +6,6 @@ export default async function connectDB() {
         console.log("Success: Connected to MongoDB");
     } catch (error) {
         console.log("Failure: Unconnected to MongoDB");
-        throw new Error();
+        throw new Error("");
     }
 }

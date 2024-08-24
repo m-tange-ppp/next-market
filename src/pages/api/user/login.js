@@ -12,7 +12,6 @@ export default async function loginUser(req, res) {
                     email: req.body.email,
                 };
                 const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "23h" });
-                console.log(token);
                 return res.status(200).json({ message: "ログイン成功" });
             } else {
                 return res.status(400).json({ message: "ログイン失敗 : パスワードを確認してください" });

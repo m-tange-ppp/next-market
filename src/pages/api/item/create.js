@@ -1,6 +1,6 @@
 import connectDB from "@/pages/utils/database"
 import { ItemModel } from "@/pages/utils/schemaModel";
-import auth from "../user/auth";
+import auth from "../../utils/auth";
 
 async function createItem(req, res) {
     try {

@@ -1,6 +1,6 @@
 import connectDB from "@/pages/utils/database";
 import { ItemModel } from "@/pages/utils/schemaModel";
-import auth from "../../user/auth";
+import auth from "../../../utils/auth";
 
 async function updateItem(req, res) {
     try {
@@ -10,7 +10,7 @@ async function updateItem(req, res) {
             await ItemModel.updateOne({ _id: req.query.id }, req.body);
             return res.status(200).json({ message: "アイテム編集成功" });
         } else {
-            throw new Error();
+            throw new Error("");
         }
     } catch (error) {
         return res.status(400).json({ message: "アイテム編集失敗" });
