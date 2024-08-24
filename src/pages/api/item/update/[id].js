@@ -1,6 +1,6 @@
-import connectDB from "@/pages/utils/database";
-import { ItemModel } from "@/pages/utils/schemaModel";
-import auth from "../../../utils/auth";
+import connectDB from "@/utils/database";
+import { ItemModel } from "@/utils/schemaModel";
+import auth from "../../../../utils/auth";
 
 async function updateItem(req, res) {
     try {

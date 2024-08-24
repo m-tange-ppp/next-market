@@ -1,5 +1,5 @@
-import connectDB from "@/pages/utils/database";
-import { ItemModel } from "@/pages/utils/schemaModel";
+import connectDB from "@/utils/database";
+import { ItemModel } from "@/utils/schemaModel";
 
 export default async function getSingleItem(req, res) {
     try {

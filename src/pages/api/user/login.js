@@ -1,5 +1,5 @@
-import connectDB from "@/pages/utils/database";
-import { UserModel } from "@/pages/utils/schemaModel";
+import connectDB from "@/utils/database";
+import { UserModel } from "@/utils/schemaModel";
 import jwt from "jsonwebtoken";
 
 export default async function loginUser(req, res) {

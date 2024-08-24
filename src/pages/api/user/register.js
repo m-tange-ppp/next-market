@@ -1,5 +1,5 @@
-import connectDB from "@/pages/utils/database";
-import { UserModel } from "@/pages/utils/schemaModel";
+import connectDB from "@/utils/database";
+import { UserModel } from "@/utils/schemaModel";
 
 export default async function registerUser(req, res) {
     try {
