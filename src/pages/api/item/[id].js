@@ -2,6 +2,7 @@ import connectDB from "@/pages/utils/database";
 import { ItemModel } from "@/pages/utils/schemaModel";
 
 export default async function getSingleItem(req, res) {
+    console.log(req);
     try {
         await connectDB();
         const singleItem = await ItemModel.findById(req.query.id);

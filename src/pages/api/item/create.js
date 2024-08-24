@@ -1,7 +1,8 @@
 import connectDB from "@/pages/utils/database"
 import { ItemModel } from "@/pages/utils/schemaModel";
+import auth from "../user/auth";
 
-export default async function createItem(req, res) {
+async function createItem(req, res) {
     try {
         await connectDB();
         await ItemModel.create(req.body);
@@ -10,3 +11,4 @@ export default async function createItem(req, res) {
         return res.status(400).json({ message: "アイテム作成失敗" })
     }
 }
+export default auth(createItem);
