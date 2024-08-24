@@ -5,7 +5,7 @@ export default function auth(handler) {
         if (req.method === "GET") {
             return handler(req, res);
         } else {
-            const token = await req.headers.authorization.split("")[1];
+            const token = await req.headers.authorization.split(" ")[1];
             if (!token) {
                 return res.status(401).json({ message: "トークンがありません" });
             } else {
