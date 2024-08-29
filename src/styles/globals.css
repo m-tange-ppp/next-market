@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-.h1-style {
-    color: red;
-    font-weight: 900;
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
 }
