@@ -15,10 +15,7 @@ function Login() {
                     "Accept": "application/json",
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    email: newUser.email,
-                    password: newUser.password
-                })
+                body: JSON.stringify(newUser)
             });
             const jsonData = await response.json();
             localStorage.setItem("token", jsonData.token);

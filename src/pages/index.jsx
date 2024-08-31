@@ -1,10 +1,28 @@
-function ReadAllItems() {
+import Link from "next/link";
+import Image from "next/image";
+
+function ReadAllItems(props) {
     return (
         <div>
-            <h1 className="h1-style">Hello</h1>
-            <h3 className="text-purple-900 font-thin">Goodbye</h3>
+            {props.allItems.map(item =>
+                <Link href="" key={item._id}>
+                    <Image src={"/" + item.image} alt={item.image} width={1200} height={620} priority={true} />
+                    <h2>\{item.price}</h2>
+                    <h3>{item.title}</h3>
+                    <p>{item.description.slice(0, 80)}…</p>
+                </Link>
+            )}
         </div>
     );
 }
 
 export default ReadAllItems;
+
+export async function getServerSideProps() {
+    const response = await fetch("http://localhost:3000/api/item/readall");
+    const allItems = await response.json();
+
+    return {
+        props: allItems
+    }
+}
