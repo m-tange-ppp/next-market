@@ -1,8 +1,8 @@
-import connectDB from "../../../utils/database";
-import { UserModel } from "../../../utils/schemaModels";
+import connectDB from "../utils/database";
+import { UserModel } from "../utils/schemaModels";
 import jwt from "jsonwebtoken";
 import type { NextApiResponse } from "next";
-import { ResMessageType, ExtendedNextApiRequestUser, SavedUserDataType } from "../../../utils/types";
+import { ResMessageType, ExtendedNextApiRequestUser, SavedUserDataType } from "../utils/types";
 
 export default async function loginUser(req: ExtendedNextApiRequestUser, res: NextApiResponse<ResMessageType>) {
     try {

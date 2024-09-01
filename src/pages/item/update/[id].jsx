@@ -17,7 +17,6 @@ function UpdateItem(props) {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        console.log(props);
         try {
             const response = await fetch(`http://localhost:3000/api/item/update/${props.singleItem._id}`, {
                 method: "POST",

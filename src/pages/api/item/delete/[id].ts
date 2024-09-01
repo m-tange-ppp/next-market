@@ -1,8 +1,8 @@
-import connectDB from "../../../../utils/database";
-import { ItemModel } from "../../../../utils/schemaModels";
-import auth from "../../../../utils/auth";
+import connectDB from "../../utils/database";
+import { ItemModel } from "../../utils/schemaModels";
+import auth from "../../utils/auth";
 import type { NextApiResponse } from "next";
-import { SavedItemDataType, ExtendedNextApiRequestItem, ResMessageType } from "../../../../utils/types";
+import { SavedItemDataType, ExtendedNextApiRequestItem, ResMessageType } from "../../utils/types";
 
 async function deleteItem(req: ExtendedNextApiRequestItem, res: NextApiResponse<ResMessageType>) {
     try {

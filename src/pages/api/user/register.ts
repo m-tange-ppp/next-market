@@ -1,7 +1,7 @@
-import connectDB from "../../../utils/database";
-import { UserModel } from "../../../utils/schemaModels";
+import connectDB from "../utils/database";
+import { UserModel } from "../utils/schemaModels";
 import type { NextApiResponse } from "next";
-import { ResMessageType, ExtendedNextApiRequestUser } from "../../../utils/types";
+import { ResMessageType, ExtendedNextApiRequestUser } from "../utils/types";
 
 export default async function registerUser(req: ExtendedNextApiRequestUser, res: NextApiResponse<ResMessageType>) {
     try {

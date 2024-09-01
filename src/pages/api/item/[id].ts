@@ -1,7 +1,7 @@
-import connectDB from "../../../utils/database";
-import { ItemModel } from "../../../utils/schemaModels";
+import connectDB from "../utils/database";
+import { ItemModel } from "../utils/schemaModels";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { ResReadSingleType, SavedItemDataType } from "../../../utils/types";
+import { ResReadSingleType, SavedItemDataType } from "../utils/types";
 
 export default async function getSingleItem(req: NextApiRequest, res: NextApiResponse<ResReadSingleType>) {
     try {

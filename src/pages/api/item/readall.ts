@@ -1,7 +1,7 @@
-import connectDB from "../../../utils/database";
-import { ItemModel } from "../../../utils/schemaModels";
+import connectDB from "../utils/database";
+import { ItemModel } from "../utils/schemaModels";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { ResReadAllType, SavedItemDataType } from "../../../utils/types";
+import { ResReadAllType, SavedItemDataType } from "../utils/types";
 
 
 export default async function getAllItems(req: NextApiRequest, res: NextApiResponse<ResReadAllType>) {

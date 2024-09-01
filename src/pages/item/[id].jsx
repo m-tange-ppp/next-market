@@ -17,7 +17,6 @@ function ReadSingleItem(props) {
                     <Link href={`/item/delete/${props.singleItem._id}`}>アイテム削除</Link>
                 </div>
             </div>
-
         </div>
     );
 }
