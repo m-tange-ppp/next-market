@@ -5,7 +5,7 @@ function ReadAllItems(props) {
     return (
         <div>
             {props.allItems.map(item =>
-                <Link href="" key={item._id}>
+                <Link href={`/item/${item._id}`} key={item._id}>
                     <Image src={"/" + item.image} alt={item.image} width={1200} height={620} priority={true} />
                     <h2>\{item.price}</h2>
                     <h3>{item.title}</h3>
