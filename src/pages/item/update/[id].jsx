@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useAuth from "../../api/utils/useAuth";
 
 function UpdateItem(props) {
     const [newItem, setNewItem] = useState({
@@ -39,18 +40,24 @@ function UpdateItem(props) {
         }
     }
 
-    return (
-        <div>
-            <h1>アイテム編集</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="title" id="title" placeholder="アイテム名" required onChange={handleChange} value={newItem.title} />
-                <input type="text" name="price" id="price" placeholder="価格" required onChange={handleChange} value={newItem.price} />
-                <input type="text" name="image" id="image" placeholder="画像" required onChange={handleChange} value={newItem.image} />
-                <textarea name="description" id="description" rows={15} placeholder="商品説明" required onChange={handleChange} value={newItem.description} ></textarea>
-                <button type="submit">編集</button>
-            </form>
-        </div>
-    )
+    const loginUser = useAuth();
+
+    if (loginUser === props.singleItem.email) {
+        return (
+            <div>
+                <h1>アイテム編集</h1>
+                <form onSubmit={handleSubmit}>
+                    <input type="text" name="title" id="title" placeholder="アイテム名" required onChange={handleChange} value={newItem.title} />
+                    <input type="text" name="price" id="price" placeholder="価格" required onChange={handleChange} value={newItem.price} />
+                    <input type="text" name="image" id="image" placeholder="画像" required onChange={handleChange} value={newItem.image} />
+                    <textarea name="description" id="description" rows={15} placeholder="商品説明" required onChange={handleChange} value={newItem.description} ></textarea>
+                    <button type="submit">編集</button>
+                </form>
+            </div>
+        )
+    } else {
+        return <h1>権限がありません</h1>
+    }
 }
 
 export default UpdateItem;

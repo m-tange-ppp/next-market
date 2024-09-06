@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Head from "next/head"
 
 function Register() {
     const [name, setName] = useState("");
@@ -29,7 +30,9 @@ function Register() {
 
     return (
         <div>
-            <h1>ユーザー登録</h1>
+            <Head>
+                <h1>ユーザー登録</h1>
+            </Head>
 
             <form onSubmit={handleSubmit}>
                 <input value={name} onChange={(e) => setName(e.target.value)} type="text" name="name" placeholder="名前" required />

@@ -9,7 +9,7 @@ function ReadSingleItem(props) {
             </div>
             <div>
                 <h1>{props.singleItem.title}</h1>
-                <h2>{props.singleItem.price}</h2>
+                <h2>\{props.singleItem.price}</h2>
                 <hr />
                 <p>{props.singleItem.description}</p>
                 <div>
