@@ -8,7 +8,7 @@ function DeleteItem(props) {
         e.preventDefault();
         console.log(props);
         try {
-            const response = await fetch(`https://next-market-orcin-ten.vercel.app/:3000/api/item/delete/${props.singleItem._id}`, {
+            const response = await fetch(`https://next-market-orcin-ten.vercel.app//api/item/delete/${props.singleItem._id}`, {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -47,7 +47,7 @@ function DeleteItem(props) {
 export default DeleteItem;
 
 export async function getServerSideProps(context) {
-    const response = await fetch(`https://next-market-orcin-ten.vercel.app/:3000/api/item/${context.query.id}`);
+    const response = await fetch(`https://next-market-orcin-ten.vercel.app//api/item/${context.query.id}`);
     const singleItem = await response.json();
     return {
         props: singleItem

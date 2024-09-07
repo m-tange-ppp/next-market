@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import Header from "../../components/header";
-import Footer from "../../components/footer";
 
 function ReadSingleItem(props) {
     return (
@@ -28,7 +26,7 @@ function ReadSingleItem(props) {
 export default ReadSingleItem;
 
 export async function getServerSideProps(context) {
-    const response = await fetch(`https://next-market-orcin-ten.vercel.app/:3000/api/item/${context.query.id}`);
+    const response = await fetch(`https://next-market-orcin-ten.vercel.app//api/item/${context.query.id}`);
     const singleItem = await response.json();
     return {
         props: singleItem
