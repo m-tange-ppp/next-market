@@ -8,6 +8,7 @@ export default async function loginUser(req: ExtendedNextApiRequestUser, res: Ne
     try {
         await connectDB();
         const savedUserData: SavedUserDataType | null = await UserModel.findOne({ email: req.body.email });
+        console.log(savedUserData);
         if (savedUserData) {
             if (savedUserData.password === req.body.password) {
                 const payload = {
