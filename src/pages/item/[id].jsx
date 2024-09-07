@@ -1,9 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 function ReadSingleItem(props) {
     return (
-        <div>
+        <div className="grid-container-si">
+            <Head><title>{props.singleItem.title} </title></Head>
             <div>
                 <Image src={"/" + props.singleItem.image} width={1200} height={620} alt={props.singleItem.image} />
             </div>
@@ -24,7 +28,7 @@ function ReadSingleItem(props) {
 export default ReadSingleItem;
 
 export async function getServerSideProps(context) {
-    const response = await fetch(`http://localhost:3000/api/item/${context.query.id}`);
+    const response = await fetch(`https://next-market-orcin-ten.vercel.app/:3000/api/item/${context.query.id}`);
     const singleItem = await response.json();
     return {
         props: singleItem

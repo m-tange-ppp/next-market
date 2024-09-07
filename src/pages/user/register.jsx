@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Head from "next/head"
+import Head from "next/head";
 
 function Register() {
     const [name, setName] = useState("");
@@ -9,7 +9,7 @@ function Register() {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:3000/api/user/register", {
+            const response = await fetch("https://next-market-orcin-ten.vercel.app/:3000/api/user/register", {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -30,9 +30,8 @@ function Register() {
 
     return (
         <div>
-            <Head>
-                <h1>ユーザー登録</h1>
-            </Head>
+            <Head><title>ユーザー登録</title></Head>
+            <h1 className="page-title">ユーザー登録</h1>
 
             <form onSubmit={handleSubmit}>
                 <input value={name} onChange={(e) => setName(e.target.value)} type="text" name="name" placeholder="名前" required />

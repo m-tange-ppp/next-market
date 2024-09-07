@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useAuth from "../api/utils/useAuth"
+import Head from "next/head";
 
 function CreateItem() {
     const loginUser = useAuth();
@@ -21,7 +22,7 @@ function CreateItem() {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:3000/api/item/create", {
+            const response = await fetch("https://next-market-orcin-ten.vercel.app/:3000/api/item/create", {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -45,7 +46,8 @@ function CreateItem() {
     if (loginUser) {
         return (
             <div>
-                <h1>アイテム作成</h1>
+                <Head><title>アイテム作成</title></Head>
+                <h1 className="page-title">アイテム作成</h1>
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="title" id="title" placeholder="アイテム名" required onChange={handleChange} value={newItem.title} />
                     <input type="text" name="price" id="price" placeholder="価格" required onChange={handleChange} value={newItem.price} />

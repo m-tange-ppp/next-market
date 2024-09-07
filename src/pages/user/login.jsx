@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Head from "next/head";
 
 function Login() {
     const [newUser, setNewUser] = useState({
@@ -9,7 +10,7 @@ function Login() {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:3000/api/user/login", {
+            const response = await fetch("https://next-market-orcin-ten.vercel.app/:3000/api/user/login", {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -34,7 +35,8 @@ function Login() {
 
     return (
         <div>
-            <h1>ログイン</h1>
+            <Head><title>ログイン</title></Head>
+            <h1 className="page-title">ログイン</h1>
 
             <form onSubmit={handleSubmit}>
                 <input value={newUser.email} onChange={handleChange} type="text" name="email" placeholder="メールアドレス" required />
