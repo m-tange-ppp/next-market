@@ -26,7 +26,7 @@ function ReadAllItems(props) {
 export default ReadAllItems;
 
 export async function getServerSideProps() {
-    const response = await fetch("https://next-market-orcin-ten.vercel.app//api/item/readall");
+    const response = await fetch("https://next-market-orcin-ten.vercel.app/api/item/readall");
     const allItems = await response.json();
 
     return {

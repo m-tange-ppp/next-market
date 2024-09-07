@@ -26,7 +26,7 @@ function ReadSingleItem(props) {
 export default ReadSingleItem;
 
 export async function getServerSideProps(context) {
-    const response = await fetch(`https://next-market-orcin-ten.vercel.app//api/item/${context.query.id}`);
+    const response = await fetch(`https://next-market-orcin-ten.vercel.app/api/item/${context.query.id}`);
     const singleItem = await response.json();
     return {
         props: singleItem

@@ -10,7 +10,7 @@ function Login() {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            const response = await fetch("https://next-market-orcin-ten.vercel.app//api/user/login", {
+            const response = await fetch("https://next-market-orcin-ten.vercel.app/api/user/login", {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
