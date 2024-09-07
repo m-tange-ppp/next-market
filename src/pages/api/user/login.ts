@@ -5,14 +5,14 @@ import type { NextApiResponse } from "next";
 import { ResMessageType, ExtendedNextApiRequestUser, SavedUserDataType } from "../utils/types";
 
 export default async function loginUser(req: ExtendedNextApiRequestUser, res: NextApiResponse<ResMessageType>) {
+    // preflight requestに対するokレスポンス
     if (req.method === "OPTIONS") {
         return res.status(204).end();
     }
-    
+
     try {
         await connectDB();
         const savedUserData: SavedUserDataType | null = await UserModel.findOne({ email: req.body.email });
-        console.log(savedUserData);
         if (savedUserData) {
             if (savedUserData.password === req.body.password) {
                 const payload = {
