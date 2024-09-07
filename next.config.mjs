@@ -8,7 +8,7 @@ const nextConfig = {
         headers: [
           {
             key: "Access-Control-Allow-Origin",
-            value: "https://next-market-5yrxqxme4-m-tange-ppps-projects.vercel.app",
+            value: "*",
           },
           {
             key: "Access-Control-Allow-Methods",
