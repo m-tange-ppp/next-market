@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { ImgInputPropsDataType } from "../pages/api/utils/types";
 
-function ImgInput(props) {
-    const [imageFile, setImageFile] = useState("");
-    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+function ImgInput(props: ImgInputPropsDataType) {
+    const [imageFile, setImageFile] = useState<File|null>(null);
+    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME as string;
 
     async function handleClick() {
+        if (!imageFile) {
+            alert("画像を選択してください");
+            return;
+        }
         try {
             const data = new FormData();
             data.append("file", imageFile);
@@ -21,7 +26,7 @@ function ImgInput(props) {
 
     return (
         <div className="img-input">
-            <input type="file" onChange={(e) => setImageFile(e.target.files[0])} accept="image/jpg image/png" />
+            <input type="file" onChange={(e) => setImageFile(e.target.files? e.target.files[0]:null)} accept="image/jpeg image/png" />
             <button onClick={handleClick} disabled={!imageFile} >画像 Upload</button>
         </div>
     )
