@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useAuth from "../api/utils/useAuth"
 import Head from "next/head";
+import ImgInput from "../../components/imgInput";
 
 function CreateItem() {
     const loginUser = useAuth();
@@ -8,9 +9,9 @@ function CreateItem() {
     const [newItem, setNewItem] = useState({
         title: "",
         price: "",
-        image: "",
         description: ""
     });
+    const [image, setImage] = useState("");
 
     function handleChange(e) {
         setNewItem({
@@ -22,7 +23,7 @@ function CreateItem() {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            const response = await fetch("https://next-market-orcin-ten.vercel.app/api/item/create", {
+            const response = await fetch("http://localhost:3000/api/item/create", {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -48,10 +49,11 @@ function CreateItem() {
             <div>
                 <Head><title>アイテム作成</title></Head>
                 <h1 className="page-title">アイテム作成</h1>
+                <ImgInput setImage={setImage} />
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="title" id="title" placeholder="アイテム名" required onChange={handleChange} value={newItem.title} />
                     <input type="text" name="price" id="price" placeholder="価格" required onChange={handleChange} value={newItem.price} />
-                    <input type="text" name="image" id="image" placeholder="画像" required onChange={handleChange} value={newItem.image} />
+                    <input type="text" name="image" id="image" placeholder="画像" required value={image} />
                     <textarea name="description" id="description" rows={15} placeholder="商品説明" required onChange={handleChange} value={newItem.description} ></textarea>
                     <button type="submit">作成</button>
                 </form>

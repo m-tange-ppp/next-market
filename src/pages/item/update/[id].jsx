@@ -20,7 +20,7 @@ function UpdateItem(props) {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            const response = await fetch(`https://next-market-orcin-ten.vercel.app/api/item/update/${props.singleItem._id}`, {
+            const response = await fetch(`http://localhost:3000/api/item/update/${props.singleItem._id}`, {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -65,7 +65,7 @@ function UpdateItem(props) {
 export default UpdateItem;
 
 export async function getServerSideProps(context) {
-    const response = await fetch(`https://next-market-orcin-ten.vercel.app/api/item/${context.query.id}`);
+    const response = await fetch(`http://localhost:3000/api/item/${context.query.id}`);
     const singleItem = await response.json();
     return {
         props: singleItem
