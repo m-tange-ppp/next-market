@@ -13,14 +13,15 @@ function CreateItem() {
     });
     const [image, setImage] = useState("");
 
-    function handleChange(e) {
+    function handleChange(e: React.ChangeEvent<HTMLElement>) {
+        const target = e.target as HTMLInputElement;
         setNewItem({
             ...newItem,
-            [e.target.name]: e.target.value
+            [target.name]: target.value
         });
     }
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
             const response = await fetch("http://localhost:3000/api/item/create", {
@@ -33,7 +34,7 @@ function CreateItem() {
                 body: JSON.stringify({
                     title: newItem.title,
                     price: newItem.price,
-                    image: newItem.image,
+                    image: image,
                     description: newItem.description
                 })
             })
@@ -53,7 +54,7 @@ function CreateItem() {
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="title" id="title" placeholder="アイテム名" required onChange={handleChange} value={newItem.title} />
                     <input type="text" name="price" id="price" placeholder="価格" required onChange={handleChange} value={newItem.price} />
-                    <input type="text" name="image" id="image" placeholder="画像" required value={image} />
+                    <input type="text" name="image" id="image" placeholder="画像" required value={image} readOnly/>
                     <textarea name="description" id="description" rows={15} placeholder="商品説明" required onChange={handleChange} value={newItem.description} ></textarea>
                     <button type="submit">作成</button>
                 </form>

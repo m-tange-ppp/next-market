@@ -17,7 +17,7 @@ function ImgInput(props: ImgInputPropsDataType) {
             data.append("cloud_name", cloudName);
             const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, { method: "POST", body: data });
             const jsonData = await response.json();
-            await props.setImage(jsonData.url);
+            await props.setImage(jsonData.secure_url);
             alert("画像アップロード成功");
         } catch (error) {
             alert("画像アップロード失敗");
@@ -26,7 +26,9 @@ function ImgInput(props: ImgInputPropsDataType) {
 
     return (
         <div className="img-input">
-            <input type="file" onChange={(e) => setImageFile(e.target.files? e.target.files[0]:null)} accept="image/jpeg image/png" />
+            <input type="file" onChange={(e) => {
+                setImageFile(e.target.files? e.target.files[0]:null);
+                }} accept="image/jpeg image/png"/>
             <button onClick={handleClick} disabled={!imageFile} >画像 Upload</button>
         </div>
     )

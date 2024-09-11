@@ -6,8 +6,9 @@ function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+        let jsonData;
         try {
             const response = await fetch("http://localhost:3000/api/user/register", {
                 method: "POST",
@@ -21,7 +22,7 @@ function Register() {
                     password: password
                 })
             });
-            const jsonData = await response.json();
+            jsonData = await response.json();
             alert(jsonData.message);
         } catch (error) {
             alert(jsonData.message);

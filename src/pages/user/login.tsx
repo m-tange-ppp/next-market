@@ -7,7 +7,7 @@ function Login() {
         password: ""
     });
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
             const response = await fetch("http://localhost:3000/api/user/login", {
@@ -26,7 +26,7 @@ function Login() {
         }
     }
 
-    function handleChange(e) {
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         setNewUser({
             ...newUser,
             [e.target.name]: e.target.value
