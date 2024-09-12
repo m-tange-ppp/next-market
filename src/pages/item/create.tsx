@@ -2,8 +2,9 @@ import { useState } from "react";
 import useAuth from "../api/utils/useAuth"
 import Head from "next/head";
 import ImgInput from "../../components/imgInput";
+import { NextPage } from "next";
 
-function CreateItem() {
+const CreateItem: NextPage = () => {
     const loginUser = useAuth();
 
     const [newItem, setNewItem] = useState({

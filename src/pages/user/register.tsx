@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Head from "next/head";
+import { NextPage } from "next";
 
-function Register() {
+const Register: NextPage = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

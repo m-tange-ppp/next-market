@@ -1,8 +1,10 @@
 import { useState } from "react";
 import useAuth from "../../api/utils/useAuth";
 import Head from "next/head";
+import { GetServerSideProps, NextPage } from "next";
+import { ReadSingleDataType } from "../../api/utils/types";
 
-function UpdateItem(props) {
+const UpdateItem: NextPage<ReadSingleDataType> = (props) => {
     const [newItem, setNewItem] = useState({
         title: props.singleItem.title,
         price: props.singleItem.price,
@@ -10,14 +12,15 @@ function UpdateItem(props) {
         description: props.singleItem.description
     });
 
-    function handleChange(e) {
+    function handleChange(e: React.ChangeEvent<HTMLElement>) {
+        const target = e.target as HTMLInputElement;
         setNewItem({
             ...newItem,
-            [e.target.name]: e.target.value
+            [target.name]: target.value
         });
     }
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e:React.FormEvent) {
         e.preventDefault();
         try {
             const response = await fetch(`http://localhost:3000/api/item/update/${props.singleItem._id}`, {
@@ -64,7 +67,7 @@ function UpdateItem(props) {
 
 export default UpdateItem;
 
-export async function getServerSideProps(context) {
+export const getServerSideProps: GetServerSideProps<ReadSingleDataType> = async(context) => {
     const response = await fetch(`http://localhost:3000/api/item/${context.query.id}`);
     const singleItem = await response.json();
     return {

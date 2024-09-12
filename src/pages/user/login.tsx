@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Head from "next/head";
+import { NextPage } from "next";
 
-function Login() {
+const Login: NextPage = () => {
     const [newUser, setNewUser] = useState({
         email: "",
         password: ""
