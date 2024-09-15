@@ -81,6 +81,18 @@ export interface ReadSingleDataType {
     }
 }
 
+// index.tsx
+export interface ReadAllDataType {
+    allItems: {
+        _id: string
+        title: string
+        image: string
+        price: string
+        description: string
+        email: string
+    }[]
+}
+
 export interface ImgInputPropsDataType {
     setImage: Function
 }
